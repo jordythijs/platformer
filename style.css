@@ -1,0 +1,106 @@
+#scorebar
+{
+	border: 3px solid rgba(0,0,0,0);
+	position: absolute;
+	left: 50%;
+	top: 4px;
+	margin-left: -600px;
+	width: 1200px;
+	height: 40px;
+	overflow: hidden;
+}
+	#scorebar #timeIcon
+	{
+		float: left;
+		height:40px;
+		width: auto;
+		margin-left: 50px;
+		margin-right: 10px;
+	}
+	#scorebar #livesIcon
+	{
+		float: left;
+		height:40px;
+		width: auto;
+		margin-left: 50px;
+		margin-right: 10px;
+	}
+	#scorebar #coinsIcon
+	{
+		float: left;
+		height:40px;
+		width: auto;
+		margin-left: 50px;
+		margin-right: 10px;
+	}
+	#scorebar span:before
+	{
+		content: "x";
+		float: left;
+		font-size:20px;
+		line-height: 40px;
+		margin-right: 5px;
+	}
+	#scorebar span
+	{
+		float: left;
+		font-size:40px;
+		line-height: 40px;
+		margin-right: 50px;
+	}
+
+
+#main 
+{
+	position: absolute; 
+	left: 50%; 
+	top: 50px; 
+	margin-left: -600px; 
+	border: 3px solid black; 
+	width: 1200px; 
+	height: 800px; 
+	overflow: hidden;
+}
+
+#player 
+{
+	position: absolute;
+    z-index: 999;
+}
+
+#level
+{
+	background-repeat: repeat-x; 
+	background-size: contain; 
+	background-position: top left; 
+	width: 2000px; 
+	height: 800px;
+}
+.faceLeft
+{
+  	transform: scale(-1, 1);
+    -moz-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -khtml-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);	
+}
+.faceRight
+{
+  	transform: scale(1, 1);
+    -moz-transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+    -o-transform: scale(1, 1);
+    -khtml-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);	
+}
+
+#debug
+{
+    position: absolute;
+    left: 0;
+    top: 50px;
+    margin-left: 0;
+    border: 3px solid red;
+    width: 346px;
+}

@@ -1,0 +1,1 @@
+De collision detection werkt nog niet lekker voor objecten onder de speler. Hij zakt regelmatig nog door de grond, soms door complete blokken en soms door een enkele ofzo. Dit komt waarschijnlijk omdat de animate() tijdens het vallen onregelmatige stappen neemt. Misschien is er een alternatief voor animate() waarbij ik zelf de stapgrootte kan kiezen voor de yPos?
