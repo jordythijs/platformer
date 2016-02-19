@@ -61,9 +61,6 @@ function moveLeft() {
         $("#player").removeClass('faceRight');
         $("#player").addClass('faceLeft');
     }
-    playerBoxCoords = determinePlayerBoxCoords();
-
-    checkCollision()
     if (moveConsequence("left")) {
         if ((currentPos - scrollSize) >= 0) {
             // Going left is OK because the level's left edge has not been reached yet
@@ -446,8 +443,4 @@ function findObjectOnPos(x1, x2, y1, y2) {
         }
     }
     return false;
-}
-
-function determinePlayerBoxCoords() {
-    $("#player")
 }

@@ -1,0 +1,3 @@
+function checkCollision(playerBoxCoords, destinationBoxCoords) {
+
+}
