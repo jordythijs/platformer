@@ -50,19 +50,19 @@
 	}
 
 
-#main 
+#main
 {
-	position: absolute; 
-	left: 50%; 
-	top: 50px; 
-	margin-left: -600px; 
-	border: 3px solid black; 
-	width: 1200px; 
-	height: 800px; 
+	position: absolute;
+	left: 50%;
+	top: 50px;
+	margin-left: -600px;
+	border: 3px solid black;
+	width: 1200px;
+	height: 800px;
 	overflow: hidden;
 }
 
-#player 
+#player
 {
 	position: absolute;
     z-index: 999;
@@ -70,11 +70,12 @@
 
 #level
 {
-	background-repeat: repeat-x; 
-	background-size: contain; 
-	background-position: top left; 
-	width: 2000px; 
+	background-repeat: repeat-x;
+	background-size: contain;
+	background-position: top left;
+	width: 2000px;
 	height: 800px;
+	position: relative;
 }
 .faceLeft
 {
@@ -83,7 +84,7 @@
     -webkit-transform: scale(-1, 1);
     -o-transform: scale(-1, 1);
     -khtml-transform: scale(-1, 1);
-    -ms-transform: scale(-1, 1);	
+    -ms-transform: scale(-1, 1);
 }
 .faceRight
 {
@@ -92,7 +93,7 @@
     -webkit-transform: scale(1, 1);
     -o-transform: scale(1, 1);
     -khtml-transform: scale(1, 1);
-    -ms-transform: scale(1, 1);	
+    -ms-transform: scale(1, 1);
 }
 
 #debug

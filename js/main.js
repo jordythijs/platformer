@@ -1,8 +1,3 @@
-var player,
-    scrollSize,
-    leftLevelEdge,
-    startingPosition = {};
-
 if($('#main').length && $('#main').blur())
 {
     // Make sure the main window keeps it's focus;
@@ -11,16 +6,20 @@ if($('#main').length && $('#main').blur())
 }
 
 $(document).ready(function() {
-    "use strict";
     main();
 });
 
 function main() {
     player = $("#player");
-// How big is a single step left or right (in pixels) when moving the player?
-    var scrollSize = 30;
-// What is the starting position (in pixels)?
+    // What is the starting position (in pixels)?
     var startingPosition = getStartingPosition();
+    setPlayerPosition();
+    $("#player").css({
+        'left': startingPosition.left+'px',
+        'top': startingPosition.top+'px'
+    });
+    clearInterval(timer);
+    timer = setInterval(countDown, 1000);
 }
 
 function getStartingPosition() {
@@ -31,8 +30,35 @@ function getStartingPosition() {
         return false;
     });
 
-    startingPosition = startBlock.offset();
-    console.log(startingPosition);
-    $("level").append('<div style="border: 1px solid blue; width: 30px; height: 30px; position: absolute; left:' +
-                     ' "'+startingPosition.x+'px; top: '+startingPosition.y+'px;"></div>');
+    startingPosition = startBlock.position();
+    startingPosition.top = startingPosition.top - $("#player").height() - 3;
+
+    return startingPosition;
+}
+
+function setPlayerPosition() {
+    playerPosition = $("#player").position();
+    playerPosX = playerPosition.left;
+    playerPosY = playerPosition.top;
+}
+
+// Let the timer count down
+function countDown() {
+    time = time - 1;
+    document.getElementById("time").innerHTML = time;
+    // Make the time red if less than 10% of the total time left
+    if (time <= (startTime / 10)) {
+        timeAlmostUp = true;
+        if (timeAlmostUp && !timerWarningSoundPlayed) {
+            document.getElementById("sfx").src = "sounds/lowtimer.wav";
+            document.getElementById("sfx").play();
+            timerWarningSoundPlayed = true;
+        }
+        document.getElementById("time").style.color = "red";
+    }
+
+    if (time <= 0) {
+        clearInterval(timer);
+        playerDeath("timeUp");
+    }
 }

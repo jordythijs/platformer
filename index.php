@@ -35,28 +35,28 @@ else
 }
 ?>
 <!DOCTYPE HTML>
-<!-- 
- 
- __     __   __     ______     __  __     __  __     ______  
-/\ \   /\ "-.\ \   /\  ___\   /\ \_\ \   /\ \_\ \   /\__  _\ 
-\ \ \  \ \ \-.  \  \ \___  \  \ \____ \  \ \  __ \  \/_/\ \/ 
- \ \_\  \ \_\\"\_\  \/\_____\  \/\_____\  \ \_\ \_\    \ \_\ 
-  \/_/   \/_/ \/_/   \/_____/   \/_____/   \/_/\/_/     \/_/ 
-                                                             
+<!--
 
- __     __     ______     ______    
-/\ \  _ \ \   /\  ___\   /\  == \   
-\ \ \/ ".\ \  \ \  __\   \ \  __<   
- \ \__/".~\_\  \ \_____\  \ \_____\ 
-  \/_/   \/_/   \/_____/   \/_____/ 
-                                    
+ __     __   __     ______     __  __     __  __     ______
+/\ \   /\ "-.\ \   /\  ___\   /\ \_\ \   /\ \_\ \   /\__  _\
+\ \ \  \ \ \-.  \  \ \___  \  \ \____ \  \ \  __ \  \/_/\ \/
+ \ \_\  \ \_\\"\_\  \/\_____\  \/\_____\  \ \_\ \_\    \ \_\
+  \/_/   \/_/ \/_/   \/_____/   \/_____/   \/_/\/_/     \/_/
 
- ______     ______     __         __  __     ______   __     ______     __   __     ______    
-/\  ___\   /\  __ \   /\ \       /\ \/\ \   /\__  _\ /\ \   /\  __ \   /\ "-.\ \   /\  ___\   
-\ \___  \  \ \ \/\ \  \ \ \____  \ \ \_\ \  \/_/\ \/ \ \ \  \ \ \/\ \  \ \ \-.  \  \ \___  \  
- \/\_____\  \ \_____\  \ \_____\  \ \_____\    \ \_\  \ \_\  \ \_____\  \ \_\\"\_\  \/\_____\ 
-  \/_____/   \/_____/   \/_____/   \/_____/     \/_/   \/_/   \/_____/   \/_/ \/_/   \/_____/ 
-                                                                                              
+
+ __     __     ______     ______
+/\ \  _ \ \   /\  ___\   /\  == \
+\ \ \/ ".\ \  \ \  __\   \ \  __<
+ \ \__/".~\_\  \ \_____\  \ \_____\
+  \/_/   \/_/   \/_____/   \/_____/
+
+
+ ______     ______     __         __  __     ______   __     ______     __   __     ______
+/\  ___\   /\  __ \   /\ \       /\ \/\ \   /\__  _\ /\ \   /\  __ \   /\ "-.\ \   /\  ___\
+\ \___  \  \ \ \/\ \  \ \ \____  \ \ \_\ \  \/_/\ \/ \ \ \  \ \ \/\ \  \ \ \-.  \  \ \___  \
+ \/\_____\  \ \_____\  \ \_____\  \ \_____\    \ \_\  \ \_\  \ \_____\  \ \_\\"\_\  \/\_____\
+  \/_____/   \/_____/   \/_____/   \/_____/     \/_/   \/_/   \/_____/   \/_/ \/_/   \/_____/
+
 
 !-->
 <html>
@@ -76,7 +76,7 @@ else
 	<meta property="og:title" 			content="">
 	<meta property="og:description" 	content="">
 	<meta property="og:image" 			content="">
-	<meta property="fb:admins" 			content="1747136511">  
+	<meta property="fb:admins" 			content="1747136511">
   	<!-- end of facebook like-button -->
   	<link rel="shortcut icon" 			href="favicon.ico">
 	<link rel="stylesheet" 				href="style.css">
@@ -85,6 +85,8 @@ else
 	<script type="text/javascript"		src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 	<script type="text/javascript" 		src="levels/1/design.opg"></script>
 	<script type="text/javascript" 		src="levels/1/definitions.js"></script>
+	<script type="text/javascript" 		src="js/vars.js"></script>
+	<script type="text/javascript" 		src="js/hooks.js"></script>
 	<script type="text/javascript" 		src="js/main.js"></script>
 	<script type="text/javascript" 		src="js/movement.js"></script>
 	<script type="text/javascript" 		src="js/objects.js"></script>
@@ -108,11 +110,12 @@ else
         <!-- End of debug -->
     <?php endif;?>
 	<img id="player" src="sprites/player/right.png" style="border: 1px solid limegreen">
-	<div name="level" id="level" style="background-image: url('levels/1/background.jpg');">
+    <div id="temp" style="position: absolute; border: 1px solid limegreen; background-color: limegreen; z-index: 999"></div>
+
+    <div name="level" id="level" style="/*background-image: url('levels/1/background.jpg');*/">
         <?php $levelObj->build('1');?>
  	</div>
 </div>
-
 <?php if($debugmode):?>
 <div id="debug">
     <table>
