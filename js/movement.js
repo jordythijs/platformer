@@ -30,7 +30,11 @@ $(document).on("keydown", function (event) {
 function moveLeft() {}
 
 function moveRight() {
-    if (debug) { console.log("Start moving to the right"); }
+    if (debug) {
+        console.log("Start moving to the right");
+    }
+    setPlayerPosition();
+
     processingKeyPress = true;
     if (!playerIsDucking) {
         changeSprite('walkRight');
@@ -39,17 +43,18 @@ function moveRight() {
     }
 
     if (!moveAllowed("walkRight")) {
-        return;
+        return false;
     }
 
     hooks("preMoveRight");
 
-    if (hasCollision("walkRight")) {
-        doCollision("walkRight");
+    if (!doCollision(hasCollision("walkRight"))) {
+        hooks("postMoveRight");
+        return;
     }
 
     mainContainer.scrollLeft(currentPos + scrollSize);
-    player.style.left = (startLeft + currentPos) + 'px';
+    player.css('left', (player.position().left + player.width())+'px');
     setPlayerPosition();
     player.promise().done(
         function () {
@@ -58,6 +63,8 @@ function moveRight() {
     );
 
     hooks("postMoveRight");
+
+    return true;
 }
 
 function moveUp() {}
@@ -100,12 +107,52 @@ function changeSprite(toType) {
 }
 
 function hasCollision(action) {
-    hasCollision = false;
+    if (debug) {
+        console.log("Checking collision..");
+    }
+    var collision = false;
+    var collisionBoxDimensions = {
+        topLeft:    [0, 0],
+        topRight:   [0, 0],
+        lowerLeft:  [0, 0],
+        lowerRight: [0, 0]
+    };
 
-    switch(action) {
+    switch (action) {
         case "walkRight":
+            collisionBoxDimensions.topLeft = [playerPosX + playerWidth, playerPosY];
+            collisionBoxDimensions.topRight = [playerPosX + (2 * playerWidth), playerPosY];
+            collisionBoxDimensions.lowerLeft = [playerPosX + playerWidth, playerPosY - playerHeight];
+            collisionBoxDimensions.lowerRight = [playerPosX + (2 * playerWidth), playerPosY] - playerHeight;
+            break;
+        case "duckWalkRight":
+            break;
+        case "walkLeft":
+            break;
+        case "duckWalkLeft":
+            break;
+        case "jump":
             break;
     }
 
-    return hasCollision;
+    // todo: Check if there's an object in the collisionBox
+    if (collision) {
+        collision = true;
+    }
+
+    if (debug) {
+        debugDrawBox(playerPosX + playerWidth, playerPosY, playerWidth, playerHeight, 'blue', 'collisionBox');
+        debugPlayerPos();
+    }
+
+    return collision;
+}
+
+function doCollision(moveType) {
+    "use strict";
+}
+
+function moveAllowed(moveType) {
+    "use strict";
+    return true;
 }

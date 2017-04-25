@@ -89,7 +89,6 @@ else
 	<script type="text/javascript" 		src="js/hooks.js"></script>
 	<script type="text/javascript" 		src="js/main.js"></script>
 	<script type="text/javascript" 		src="js/movement.js"></script>
-	<script type="text/javascript" 		src="js/objects.js"></script>
 </head>
 
 <body onload="main()">
@@ -104,11 +103,6 @@ else
 </div>
 
 <div name="main" id="main">
-	<?php if($debugmode): ?>
-        <!-- Debug-->
-        <div id="checkPositiondiv"></div>
-        <!-- End of debug -->
-    <?php endif;?>
 	<img id="player" src="sprites/player/right.png" style="border: 1px solid limegreen">
     <div id="temp" style="position: absolute; border: 1px solid limegreen; background-color: limegreen; z-index: 999"></div>
 
@@ -126,11 +120,13 @@ else
     <hr>
 
     <table>
-        <tr><td>Collisionbox position left:</td>    <td id="colboxposleft"></td></tr>
-        <tr><td>Collisionbox position right:</td>   <td id="colboxposright"></td></tr>
-        <tr><td>Collisionbox position top:</td>     <td id="colboxpostop"></td></tr>
-        <tr><td>Collisionbox position bottom:</td>  <td id="colboxposbottom"></td></tr>
+        <tr><td>Collisionbox abs position left:</td>    <td id="colboxposleft"></td></tr>
+        <tr><td>Collisionbox abs position right:</td>   <td id="colboxposright"></td></tr>
+        <tr><td>Collisionbox abs position top:</td>     <td id="colboxpostop"></td></tr>
+        <tr><td>Collisionbox abs position bottom:</td>  <td id="colboxposbottom"></td></tr>
         <tr><td>Collisionbox offset left:</td>      <td id="colboxoffsetleft"></td></tr>
+        <tr><td>Collisionbox offset right:</td>      <td id="colboxoffsetright"></td></tr>
+        <tr><td>Collisionbox offset top:</td>    <td id="colboxoffsettop"></td></tr>
         <tr><td>Collisionbox offset bottom:</td>    <td id="colboxoffsetbottom"></td></tr>
         <tr><td>Collisionbox width:</td>            <td id="colboxwidth"></td></tr>
         <tr><td>Collisionbox height:</td>           <td id="colboxheight"></td></tr>
@@ -139,10 +135,13 @@ else
     <hr>
 
     <table>
-        <tr><td>Player position left:</td>      <td id="playerposleft"></td></tr>
-        <tr><td>Player position top:</td>       <td id="playerpostop"></td></tr>
-        <tr><td>Player position bottom:</td>    <td id="playerposbottom"></td></tr>
+        <tr><td>Player abs position left:</td>      <td id="playerposleft"></td></tr>
+        <tr><td>Player abs position right:</td>      <td id="playerposright"></td></tr>
+        <tr><td>Player abs position top:</td>       <td id="playerpostop"></td></tr>
+        <tr><td>Player abs position bottom:</td>    <td id="playerposbottom"></td></tr>
         <tr><td>Player offset left:</td>        <td id="playeroffsetleft"></td></tr>
+        <tr><td>Player offset right:</td>      <td id="playeroffsetright"></td></tr>
+        <tr><td>Player offset top:</td>        <td id="playeroffsettop"></td></tr>
         <tr><td>Player offset bottom:</td>      <td id="playeroffsetbottom"></td></tr>
         <tr><td>Player width:</td>              <td id="playerwidth"></td></tr>
         <tr><td>Player height:</td>             <td id="playerheight"></td></tr>

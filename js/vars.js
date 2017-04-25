@@ -1,7 +1,7 @@
 // Create other variables that will be defined later
 var player,
     debug = true,
-    mainContainer = $("#main"),             // The top element containing the level, player etc.
+    mainContainer,             // The top element containing the level, player etc.
     scrollsize,                             // How big is a single step left or right (in pixels) when moving the player?
     startingPosition,
     leftLevelEdge = 450,                    // What is the starting position (in pixels)?
@@ -31,4 +31,5 @@ var player,
     processingKeyPress = false,             // This variable is used to check if a key was pressed and the code to process this keypress is still busy
     playerIsDucking = false,                // These variables are used to check if the player is in a ducking position or in the air
     playerIsInTheAir = false,               // These variables are used to check if the player is in a ducking position or in the air
+    objectsMatrix,                          // Contains info about all objects in the level, like the bounding boxes
     timer;                                  // Start the timer
